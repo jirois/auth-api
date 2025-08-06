@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
+import protecteRoutes from "./routes/protectedRoutes.js";
 
 // Load environment variables
 dotenv.config();
@@ -15,6 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/protected", protecteRoutes);
 
 // Test Route
 app.get("/", (req, res) => {
